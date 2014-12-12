@@ -25,11 +25,8 @@ int turnOff(String args) {
 
 /*
 
-//Hi Mike. I put the html code here so you can see it
-// possibly running on 
-// https://jer-http-spark-dec12-jerteach.c9.io/www/ajaxForm2.html
-// or
-// https://jer-http-spark-dec12-jerteach.c9.io/www/
+
+
 
 
 <html>
@@ -120,10 +117,10 @@ function getFormValues(fobj){
 Type in the boxes to activate AJAX.<br>
 <form name="myForm" method="POST" action = "https://api.spark.io/v1/devices/sparkCoreName/myTurnOn" >
 
-Access Token: <input  name="access_token" type=text size=50 placeholder="76sdf78sd9f7sd6f87s6dfgsf76g"> 
+Access Token: <input  name="access_token" type=text size=50 placeholder="76sdf78sd5f7sd6f87s6dfgsf76g"> 
 Get this from the setting area when logged into <a href="http://spark.io">http://spark.io</a><br>
 
-Device ID: <input id="myDeviceId" name="myCore" type=text size=50 placeholder="sparkCoreName" onchange="{
+Device ID: <input id="myDeviceId" name="myCore" type=text size=50 placeholder="34564563" onchange="{
    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/' + document.all.myFunctionName.value
       // alert(document.myForm.action)
 }"> 
