@@ -5,9 +5,20 @@ void setup() {
   pinMode(A0, INPUT);
   Spark.function("d7-on", d7On);
   Spark.function("d7-off", d7Off);
+  
+  
+  RGB.control(true);
+  RGB.color(0, 255, 255);  //cyan
+  RGB.brightness(4);    // very low light
+  
+  
 }
 
 void loop() {
+    delay(4000);
+    RGB.color(0, 255, 255);
+    delay(4000);
+    RGB.color(0, 0, 0);
    // nothing here
 }
 
