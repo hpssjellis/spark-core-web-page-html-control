@@ -167,8 +167,8 @@ Example direct buttons -->
 }">
 
 
-<input type="button" value="D6 HIGH" onClick="{
-    document.all.myParameter.value='D6,DWR,1'
+<input type="button" value="This works d7,dWr,0" onClick="{
+    document.all.myParameter.value='d7,dWr,0'
     document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
     document.all.mySend.value = document.myForm.action 
     
@@ -176,16 +176,8 @@ Example direct buttons -->
 }">
 
 
-<input type="button" value="D6 LOW" onClick="{
-    document.all.myParameter.value='D6,DWR,0'
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    
-    document.myForm.submit();
-}">
 
-
-<input type="button" value="D5 read" onClick="{
+<input type="button" value="D6 read" onClick="{
     document.all.myParameter.value='D5,DRE'
     document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
     document.all.mySend.value = document.myForm.action 
@@ -194,14 +186,6 @@ Example direct buttons -->
 }">
 
 
-
-<input type="button" value="A1 read" onClick="{
-    document.all.myParameter.value='A1,ARE'
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    
-    document.myForm.submit();
-}">
 
 
 
@@ -223,6 +207,14 @@ Example direct buttons -->
 }">
 
 
+
+<input type="button" value="A1 read" onClick="{
+    document.all.myParameter.value='A1,ARE'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
 
 
 
