@@ -150,8 +150,8 @@ Example direct buttons -->
 
 
 <input type="button" value="D7 HIGH" onClick="{
-    document.all.myParameter.value='D7,HIGH'
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/digitalwrite'
+    document.all.myParameter.value='D7,DWR,1'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
     document.all.mySend.value = document.myForm.action 
     
     document.myForm.submit();
@@ -159,8 +159,64 @@ Example direct buttons -->
 
 
 <input type="button" value="D7 LOW" onClick="{
-    document.all.myParameter.value='D7,LOW'
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/digitalwrite'
+    document.all.myParameter.value='D7,DWR,0'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
+
+
+<input type="button" value="D6 HIGH" onClick="{
+    document.all.myParameter.value='D6,DWR,1'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
+
+
+<input type="button" value="D6 LOW" onClick="{
+    document.all.myParameter.value='D6,DWR,0'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
+
+
+<input type="button" value="D5 read" onClick="{
+    document.all.myParameter.value='D5,DRE'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
+
+
+
+<input type="button" value="A1 read" onClick="{
+    document.all.myParameter.value='A1,ARE'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
+
+
+
+<input type="button" value="A0 write 0" onClick="{
+    document.all.myParameter.value='A0,AWR,0'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
+
+
+<input type="button" value="A0 write 255" onClick="{
+    document.all.myParameter.value='A0,AWR,255'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
     document.all.mySend.value = document.myForm.action 
     
     document.myForm.submit();
