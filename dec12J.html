@@ -197,6 +197,13 @@ Example direct buttons --><br>
 
 
 
+<input type="button" value="a0-send-255" onClick="{
+    document.all.myParameter.value='a0-send-255'
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}">
 
 
 
@@ -209,13 +216,6 @@ Example direct buttons --><br>
 }">
 
 
-<input type="button" value="a0-send-255" onClick="{
-    document.all.myParameter.value='a0-send-255'
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    
-    document.myForm.submit();
-}">
 
 
 
