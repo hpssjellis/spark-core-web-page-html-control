@@ -12,7 +12,7 @@ void setup(){
     // test everything using the return int from a function!
       
   
-    RGB.control(true);
+    //RGB.control(true);
     //RGB.color(0, 255, 255);  //cyan
     RGB.brightness(1);    // 1=very low light, 255 = max
 
