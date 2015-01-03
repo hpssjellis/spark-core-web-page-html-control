@@ -1,3 +1,17 @@
+/*    
+
+This file is called useless.ino not because it does not work but because it uses up 
+all four of your allowable spark.funcitons so that you can't include anymore functions
+
+If you only wanted to do 4 things then this is fine. Possibly the easiest way to do most spark functions.
+
+Note: digital read example below but we do not have enough spark.functions available to activate it
+
+*/
+
+
+
+
 
 //PUT YOUR VARIABLES HERE
 
@@ -11,8 +25,11 @@ void setup(){
     Spark.function("a1-read", a1Read);
 
 
-    //PUT YOUR SETUP CODE HERE
 
+
+   // Spark.function("d6-read", d6Read);
+   
+   //PUT YOUR SETUP CODE HERE
 
 }
 
@@ -37,6 +54,12 @@ int d7SendOff(String myCommand){
     return 0;
 }
    
+   
+// int d6Read(String myCommand){ // digital read example 
+//     pinMode(D6, OUTPUT);    
+//     return digitalRead(D6);   
+// }
+
 
 
 int a1Read(String myCommand){
