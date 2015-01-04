@@ -351,10 +351,9 @@ What is returned from the spark cloud server goes below here. Should be under 2 
   document.all.myCalc1.value = (myTemp * 3.3 / 4095).toFixed(2);
 
 }">
-Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts 
+Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts <br><br>
 <hr>
-<br><br><br><br><br><br><br><br><br>
-
+<br><br><br><br><br><br>
 
 
 <input type="button" id="mySlider1" value="a0-send-255:slider" style="position:absolute; left:100px; top:1000px; height:100px" onmouseover="{
@@ -365,8 +364,13 @@ Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts
 
 onMouseMove="{
 if (document.mySpecial == 'over'){
-  document.all.mySlider1.style.top = event.clientY + document.body.scrollTop -50 + 'px' //event.clientY -7 + 'px'
-  //alert(event.clientY)
+  var myNewTop = event.clientY + document.body.scrollTop -50 
+
+  if (myNewTop < 1000){myNewTop = 1000}
+  if (myNewTop > 1000+255){myNewTop = 1000+255}
+
+  document.all.mySlider1.style.top = myNewTop + 'px'
+
 }
 
 }"
