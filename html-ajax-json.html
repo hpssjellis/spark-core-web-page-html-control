@@ -4,6 +4,7 @@
 
 <title>Post Spark Core </title>
 
+<font style="font-size:30px">
 
 
 
@@ -90,6 +91,21 @@ function getFormValues(fobj){
    str = str.substr(0,(str.length - 1));
    return str;
 }
+
+
+
+
+
+function sendToSpark(){
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/' + document.all.myFunctionName.value
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')   
+    
+}
+
+
+
 //--></script>
 
 
@@ -171,19 +187,14 @@ Start form elements to be sent including the acces_token and the parameters
 
 <form name="myForm" method="POST" id="myCoolForm" ><br>
 
-Parameter if needed:<input id="myParameter" name="params" type=text size=50 placeholder="D7,DWR,HIGH"> Your Function may need these <br>
+Parameter if needed:<input id="myParameter" name="params" type=text size=50 placeholder="d7-send-high"> Your Function may need these <br>
 
 Access Token:-------<input id="myToken" name="access_token" type=text size=50 placeholder="5622ce6bba702ef6bd3456d5ed26aaa4a28d7c9"> 
 Get this from the settings area when logged into <a href="http://spark.io">http://spark.io</a><br><br>
 
 
 <input type=button value="submit" onClick="{
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/' + document.all.myFunctionName.value
-    document.all.mySend.value = document.myForm.action 
- 
-    //document.myForm.submit();
-   
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+  sendToSpark()
 }">
 
 
@@ -234,68 +245,47 @@ Example direct buttons --><br>
 
 <input type="button" value="d7-send-1" onClick="{
     document.all.myParameter.value='d7-send-1'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+    sendToSpark()
 }">
 
 
 
 <input type="button" value="d7-send-0" onClick="{
     document.all.myParameter.value='d7-send-0'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+    sendToSpark()
 }">
 
 
 <input type="button" value="d6-send-1" onClick="{
     document.all.myParameter.value='d6-send-1'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+    sendToSpark()
 }">
 
 
 <input type="button" value="d6-send-0" onClick="{
     document.all.myParameter.value='d6-send-0'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+    sendToSpark()
 }">
 
 
 
 <input type="button" value="d5-read" onClick="{
     document.all.myParameter.value='d5-read'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+    sendToSpark()
 }">
 
 
 
 <input type="button" value="a0-send-255" onClick="{
     document.all.myParameter.value='a0-send-255'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+    sendToSpark()
 }">
 
 
 
 <input type="button" value="a0-send-0" onClick="{
     document.all.myParameter.value='a0-send-0'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
+    sendToSpark()
 }">
 
 
@@ -304,15 +294,31 @@ Example direct buttons --><br>
 
 <input type="button" value="a1-read" onClick="{
     document.all.myParameter.value='a1-read'
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
-
+    sendToSpark()
 }">
 
 
 
+
+<input type="button" value="a1-read:Polling" onClick="{
+    if(document.all.myPoll.value < '5'){document.all.myPoll.value = 5}
+    document.all.myParameter.value='a1-read'
+    sendToSpark()
+    clearInterval(document.myPollSave) 
+    document.myPollSave = setInterval('myPollFun()',document.all.myPoll.value*1000)
+}">
+<script>
+function myPollFun(){
+    document.all.myParameter.value='a1-read'
+    sendToSpark()
+}
+    
+</script>
+every <input type=text size=5 value=5 id="myPoll">Seconds
+
+<input type="button" value="Clear Polling" onClick="{
+    clearInterval(document.myPollSave) 
+}">
 
 
 
@@ -336,11 +342,32 @@ What is returned from the spark cloud server goes below here. Should be under 2 
 
 
 
-<div width="400" height="200" name="myDivName" id="myDivId" > output here </div>
+<div width="400" height="200" name="myDivName" id="myDivId"> output here </div><br>
 
 
 
-<br>At the bottom of every page make sure you include the following button:<br>
+<input type=button value="A1 Sensor in Volts" onclick="{
+  var myTemp = parseFloat(getElementById('myDivId').innerHTML)
+  document.all.myCalc1.value = (myTemp * 3.3 / 4095).toFixed(2);
+
+}">
+Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br>At the bottom of every page make sure you include the following button:<br>
 <input type=button value="Back" style="font-size:25px" onclick="{window.history.back()}"><br><br>
 
 
@@ -348,7 +375,7 @@ What is returned from the spark cloud server goes below here. Should be under 2 
 
 
 
-
+</font>
 </body>
 </html>
 
