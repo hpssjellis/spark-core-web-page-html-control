@@ -352,6 +352,32 @@ What is returned from the spark cloud server goes below here. Should be under 2 
 
 }">
 Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts 
+<hr>
+<br><br><br><br><br><br><br><br><br>
+
+
+
+<input type="button" id="mySlider1" value="a0-send-255:slider" style="position:absolute; left:100px; top:1000px; height:100px" onmouseover="{
+    document.mySpecial = 'over'
+}" onmouseout="{
+    document.mySpecial = 'out'
+}"
+
+onMouseMove="{
+if (document.mySpecial == 'over'){
+  document.all.mySlider1.style.top = event.clientY + document.body.scrollTop -50 + 'px' //event.clientY -7 + 'px'
+  //alert(event.clientY)
+}
+
+}"
+onClick="{
+
+    var myTop = parseInt(document.all.mySlider1.style.top)-1000
+    if(myTop < 0){myTop = 0}
+    if(myTop > 255){myTop = 255}
+    document.all.myParameter.value='a0-send-'+ myTop
+    sendToSpark()
+}">
 
 
 
@@ -366,8 +392,10 @@ Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts
 
 
 
-
-<br><br><br><br><br>At the bottom of every page make sure you include the following button:<br>
+<br><br><br><br>
+<hr>
+<br><br><br><br>
+<br>At the bottom of every page make sure you include the following button:<br>
 <input type=button value="Back" style="font-size:25px" onclick="{window.history.back()}"><br><br>
 
 
