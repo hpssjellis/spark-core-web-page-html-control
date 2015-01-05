@@ -13,3 +13,24 @@ Then just call the function you want to activate. Travels at the speed of your c
 
 
 Wow. Very happy.
+
+Jan 4th, 2015
+
+
+
+So files:
+
+spark-control-basic-web-page.html Control a spark device using regular html a form, iframe and local storage. 
+
+spark-wen.ino the spark file that must be flashed to the device
+
+useless.ino  the bare essential spark activation but uses up the four possible spark functions. Simple but useless
+
+xtra-ajax-json-slider-polling.html   a more advanced much better than the basic web page still only uses javascript and html but is more efficient.
+
+Both HTML files can be loaded onto phonegap build to make Android and iOS Apps that activate spark devices.
+
+
+
+
+
