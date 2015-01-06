@@ -4,7 +4,6 @@
 
 <title>Post Spark Core </title>
 
-<font style="font-size:30px">
 
 
 
@@ -46,30 +45,13 @@ function postData(url, parameters, myDivToChange2){
       }
       if (xmlHttp.readyState == 4) {
              // this is where the magic occcurs
-             
-          var myJsonObject = JSON.parse(xmlHttp.responseText);
-
-             
-             
-           //document.getElementById(myDivToChange2).innerHTML=xmlHttp.responseText+' data sent was '+parameters;
-         
-           document.getElementById(myDivToChange2).innerHTML= myJsonObject.return_value;
-         
-         
-         
+         document.getElementById(myDivToChange2).innerHTML=xmlHttp.responseText+' data sent was '+parameters;
       }
    }
    xmlHttp.open("POST", url, true);
    xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
    xmlHttp.send(parameters);
 }
-
-
-
-
-
-
-
 function getFormValues(fobj){
    var str = "";
    var valueArr = null;
@@ -91,21 +73,6 @@ function getFormValues(fobj){
    str = str.substr(0,(str.length - 1));
    return str;
 }
-
-
-
-
-
-function sendToSpark(){
-    
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/' + document.all.myFunctionName.value
-    document.all.mySend.value = document.myForm.action 
-    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')   
-    
-}
-
-
-
 //--></script>
 
 
@@ -128,7 +95,7 @@ function sendToSpark(){
    if(myStorage1  != null){
       document.all.myToken.style.visibility = 'hidden'  // hide sensitive data. remove these if irritating
       document.all.mySend.style.visibility = 'hidden'
-     // document.all.myDivId.style.visibility = 'hidden'
+      document.all.myDivId.style.visibility = 'hidden'
       document.all.myDeviceId.style.visibility = 'hidden'
       
       document.getElementById('myToken').value = myStorage1 
@@ -187,14 +154,19 @@ Start form elements to be sent including the acces_token and the parameters
 
 <form name="myForm" method="POST" id="myCoolForm" ><br>
 
-Parameter if needed:<input id="myParameter" name="params" type=text size=50 placeholder="d7-send-high"> Your Function may need these <br>
+Parameter if needed:<input id="myParameter" name="params" type=text size=50 placeholder="D7,DWR,HIGH"> Your Function may need these <br>
 
 Access Token:-------<input id="myToken" name="access_token" type=text size=50 placeholder="5622ce6bba702ef6bd3456d5ed26aaa4a28d7c9"> 
 Get this from the settings area when logged into <a href="http://spark.io">http://spark.io</a><br><br>
 
 
 <input type=button value="submit" onClick="{
-  sendToSpark()
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/' + document.all.myFunctionName.value
+    document.all.mySend.value = document.myForm.action 
+ 
+    //document.myForm.submit();
+   
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
@@ -216,15 +188,21 @@ End form elements
 <input type="button" value="Hide Sensitive"  onClick="{
     document.all.myToken.style.visibility = 'hidden'
     document.all.mySend.style.visibility = 'hidden'
-    //document.all.myDivId.style.visibility = 'hidden'
+    document.all.myDivId.style.visibility = 'hidden'
     document.all.myDeviceId.style.visibility = 'hidden'
 }">
 
 <input type="button" value="Show Sensitive" style="background-color:lime" onClick="{
     document.all.myToken.style.visibility = 'visible'
     document.all.mySend.style.visibility = 'visible'
-   // document.all.myDivId.style.visibility = 'visible'
+    document.all.myDivId.style.visibility = 'visible'
     document.all.myDeviceId.style.visibility = 'visible'
+}">
+<input type="button" value="Show Output Only"  onClick="{
+    document.all.myToken.style.visibility = 'hidden'
+    document.all.mySend.style.visibility = 'hidden'
+    document.all.myDivId.style.visibility = 'visible'
+    document.all.myDeviceId.style.visibility = 'hidden'
 }">
 
 
@@ -245,47 +223,68 @@ Example direct buttons --><br>
 
 <input type="button" value="d7-send-1" onClick="{
     document.all.myParameter.value='d7-send-1'
-    sendToSpark()
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
 
 <input type="button" value="d7-send-0" onClick="{
     document.all.myParameter.value='d7-send-0'
-    sendToSpark()
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
 <input type="button" value="d6-send-1" onClick="{
     document.all.myParameter.value='d6-send-1'
-    sendToSpark()
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
 <input type="button" value="d6-send-0" onClick="{
     document.all.myParameter.value='d6-send-0'
-    sendToSpark()
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
 
 <input type="button" value="d5-read" onClick="{
     document.all.myParameter.value='d5-read'
-    sendToSpark()
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
 
 <input type="button" value="a0-send-255" onClick="{
     document.all.myParameter.value='a0-send-255'
-    sendToSpark()
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
 
 <input type="button" value="a0-send-0" onClick="{
     document.all.myParameter.value='a0-send-0'
-    sendToSpark()
+    
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 }">
 
 
@@ -294,31 +293,15 @@ Example direct buttons --><br>
 
 <input type="button" value="a1-read" onClick="{
     document.all.myParameter.value='a1-read'
-    sendToSpark()
-}">
-
-
-
-
-<input type="button" value="a1-read:Polling" onClick="{
-    if(document.all.myPoll.value < '5'){document.all.myPoll.value = 5}
-    document.all.myParameter.value='a1-read'
-    sendToSpark()
-    clearInterval(document.myPollSave) 
-    document.myPollSave = setInterval('myPollFun()',document.all.myPoll.value*1000)
-}">
-<script>
-function myPollFun(){
-    document.all.myParameter.value='a1-read'
-    sendToSpark()
-}
     
-</script>
-every <input type=text size=5 value=5 id="myPoll">Seconds
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    myAjax(document.all.myCoolForm, document.myForm.action, 'myDivId')
 
-<input type="button" value="Clear Polling" onClick="{
-    clearInterval(document.myPollSave) 
 }">
+
+
+
 
 
 
@@ -342,98 +325,10 @@ What is returned from the spark cloud server goes below here. Should be under 2 
 
 
 
-<div width="400" height="200" name="myDivName" id="myDivId"> output here </div><br>
+<div width="400" height="200" name="myDivName" id="myDivId">out put here </div>
 
 
 
-<input type=button id="myToVolts" value="A1 Sensor in Volts" onclick="{
-  var myTemp = parseFloat(getElementById('myDivId').innerHTML)
-  document.all.myCalc1.value = (myTemp * 3.3 / 4095).toFixed(2);
-
-}">
-Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts <br><br>
-<hr>
-<br><br><br><br><br><br>
-
-
-<input type="button" id="mySlider1" value="a0-send-255:slider" style="position:absolute; left:100px; top:1000px; height:200px"  
-
-onmouseout="{
-    var myTop = parseInt(document.all.mySlider1.style.top)-1000
-    if(myTop < 0){myTop = 0}
-    if(myTop > 255){myTop = 255}
-    document.all.myParameter.value='a0-send-'+ myTop+ ':slider'
-    sendToSpark()
-}"
-
-onTouchEnd="{
-    var myTop = parseInt(document.all.mySlider1.style.top)-1000
-    if(myTop < 0){myTop = 0}
-    if(myTop > 255){myTop = 255}
-    document.all.myParameter.value='a0-send-'+ myTop+ ':tap'
-    sendToSpark()
-}"
-
-
-onclick="{
-    var myTop = parseInt(document.all.mySlider1.style.top)-1000
-    if(myTop < 0){myTop = 0}
-    if(myTop > 255){myTop = 255}
-    document.all.myParameter.value='a0-send-'+ myTop+ ':slider'
-    sendToSpark()
-}"
-
-
-onMouseMove="{
-
-  var myNewTop = event.clientY + document.body.scrollTop -50 
-  if (myNewTop < 1000){myNewTop = 1000}
-  if (myNewTop > 1000+255){myNewTop = 1000+255}
-  var myNewTopAdjusted = Math.round(myNewTop - 1000)
-  
-  document.all.mySlider1.value = 'a0-send-' + myNewTopAdjusted + ':slider'
-  document.all.mySlider1.style.top = myNewTop + 'px'
-
-
-}"
-
-onTouchMove="{   // works like a tap not a slide
-
-  
-  var myNewTop = touches[0].getLocation().y + document.body.scrollTop -50 
-  if (myNewTop < 1000){myNewTop = 1000}
-  if (myNewTop > 1000+255){myNewTop = 1000+255}
-  var myNewTopAdjusted = Math.round(myNewTop - 1000)
-
-  document.all.mySlider1.value = 'a0-send-' + myNewTopAdjusted + ':tap'
-  document.all.mySlider1.style.top = myNewTop + 'px'
-  
-  
-
-}"
-
-
-
-
-
->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br><br><br><br>
-<hr>
-<br><br><br><br>
 <br>At the bottom of every page make sure you include the following button:<br>
 <input type=button value="Back" style="font-size:25px" onclick="{window.history.back()}"><br><br>
 
@@ -442,7 +337,35 @@ onTouchMove="{   // works like a tap not a slide
 
 
 
-</font>
+
+
+
+
+
+
+
+<form name="myForm345">
+    AJAX example<br>
+
+<input type="text" name="myName" size="20" onKeyUp="{myAjax(this.form, 'http://www.yourURL.com/yourFolder/ajax.php', 'myDiv1')}">
+    <div id="myDiv">This is where the php stuff will go</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 
