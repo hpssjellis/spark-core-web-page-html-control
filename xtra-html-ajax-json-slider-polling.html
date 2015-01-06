@@ -346,59 +346,67 @@ What is returned from the spark cloud server goes below here. Should be under 2 
 
 
 
-<input type=button value="A1 Sensor in Volts" onclick="{
+<input type=button id="myToVolts" value="A1 Sensor in Volts" onclick="{
   var myTemp = parseFloat(getElementById('myDivId').innerHTML)
   document.all.myCalc1.value = (myTemp * 3.3 / 4095).toFixed(2);
 
 }">
-Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts <br><br>
+Sensor A1 reading in Volts: <input type=text id="myCalc1" value=0>Volts <br><br><br>
 <hr>
-<br><br><br><br><br><br>
+<br><br><br>
 
 
-<input type="button" id="mySlider1" value="a0-send-255:slider" style="position:absolute; left:100px; top:1000px; height:100px" onmouseover="{
-    document.mySpecial = 'over'
-}" onmouseout="{
-    document.mySpecial = 'out'
-}"
+<input type="button" id="mySlider1" value="a0-send-255:slider" style="position:absolute; left:100px; top:1000px; height:100px"  
 
-onMouseMove="{
-if (document.mySpecial == 'over'){
-  var myNewTop = event.clientY + document.body.scrollTop -50 
 
-  if (myNewTop < 1000){myNewTop = 1000}
-  if (myNewTop > 1000+255){myNewTop = 1000+255}
-
-  document.all.mySlider1.style.top = myNewTop + 'px'
-
-}
-
-}"
-onClick="{
-
+onmouseout="{
     var myTop = parseInt(document.all.mySlider1.style.top)-1000
     if(myTop < 0){myTop = 0}
     if(myTop > 255){myTop = 255}
-    document.all.myParameter.value='a0-send-'+ myTop
+    document.all.myParameter.value='a0-send-'+ myTop+ ':slider'
     sendToSpark()
-}">
+}"
+
+
+onMouseMove="{
+  var myNewTop = event.clientY + document.body.scrollTop -50 
+  if (myNewTop < 1000){myNewTop = 1000}
+  if (myNewTop > 1000+255){myNewTop = 1000+255}
+  var myNewTopAdjusted = Math.round(myNewTop - 1000)
+  document.all.mySlider1.value = 'a0-send-' + myNewTopAdjusted + ':slider'
+  document.all.mySlider1.style.top = myNewTop + 'px'
+
+}"
+
+
+onTouchEnd="{
+    var myTop = parseInt(document.all.mySlider1.style.top)-1000
+    if(myTop < 0){myTop = 0}
+    if(myTop > 255){myTop = 255}
+    document.all.myParameter.value='a0-send-'+ myTop+ ':tap'
+    sendToSpark()
+}"
+
+
+onTouchMove="{   // works like a tap not a slide
+  var myNewTop =   event.changedTouches[0].clientY + document.body.scrollTop -50   
+  if (myNewTop < 1000){myNewTop = 1000}
+  if (myNewTop > 1000+255){myNewTop = 1000+255}
+  var myNewTopAdjusted = Math.round(myNewTop - 1000)
+  document.all.mySlider1.value = 'a0-send-' + myNewTopAdjusted + ':slider'
+  document.all.mySlider1.style.top = myNewTop + 'px'
+  event.preventDefault();
+}"
+
+>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-<br><br><br><br>
+<br><br><br><br><br><br>
 <hr>
-<br><br><br><br>
+
 <br>At the bottom of every page make sure you include the following button:<br>
 <input type=button value="Back" style="font-size:25px" onclick="{window.history.back()}"><br><br>
 
