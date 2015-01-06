@@ -14,11 +14,13 @@ Then just call the function you want to activate. Travels at the speed of your c
 
 Wow. Very happy.
 
-Jan 4th, 2015
+
+
+Finished Jan 5, 2015
 
 
 
-So files:
+The files are:
 
 1. spark-control-basic-web-page.html Control a spark device using regular html a form, iframe and local storage. 
 
@@ -31,6 +33,12 @@ So files:
 Both HTML files can be loaded onto phonegap build to make Android and iOS Apps that activate spark devices.
 
 
+
+Use at your own risk.
+
+By Jeremy Ellis the maker of http://rocksetta.com
+
+twitter @rocksetta
 
 
 
