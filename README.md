@@ -4,6 +4,9 @@ spark-core-web-page-html-control
 Example control of the spark core and perhaps photon with a simple html web page 
 
 
+https://www.youtube.com/watch?v=-CyKv4UC1OA
+
+
 
 Dec 12, 2014  Can't really believe that it worked, but it does. You need to find your access token in the spark settings page at the bottom left of your spark IDE screen.
 
