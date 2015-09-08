@@ -1,39 +1,77 @@
 <html>
+<head>
+
+
+<title><a href="http://particle.io" >Particle.io</a> (formerly Spark.io) web page control of the Core or Photon </title>
+
+
+
+</head>
 
 <body onload="{
    myStorage1 = localStorage.getItem('myStoredText1')
-   if(myStorage1  != null){     
+   if(myStorage1  != null){      
       document.getElementById('myToken').value = myStorage1 
-    }    
+    }
+    
     myStorage2 = localStorage.getItem('myStoredText2')
     if(myStorage2  != null){
-       document.getElementById('myDeviceId').value = myStorage2       
-    }         
+       document.getElementById('myDeviceId').value = myStorage2 
+      
+    }
+    
+      
 }">
 
   
-Type in the boxes then click submit to activate your Spark Core or Photon.<br>
 
-Device ID:-----------<input id="myDeviceId" name="myCoreID" type=text size=50 
 
-placeholder="78dd12345678123456"> 
+
+<h2 align=center><a href="http://particle.io" >Particle.io</a> (formerly Spark.io) web page control of the Core or Photon </h2>
+
+
+
+
+
+Type in the boxes then click the buttons to activate your Photon.<br><br>
+
+
+
+Device ID:<input id="myDeviceId" name="myCoreID" type=text size=50 placeholder="78dd12345678123456"> 
 Get this from the core area when logged in<br>
+
 
 <input id="myFunctionName" name="myFunction"  type=hidden size=50 value="my-main" > 
 
 
-<form name="myForm" method="POST" action = "https://api.spark.io/v1/devices/sparkCoreName/myTurnOn" 
 
-target="myFrameName"><br>
+
+<form name="myForm" method="POST" action = "https://api.spark.io/v1/devices/sparkCoreName/myTurnOn" target="myFrameName"><br>
 
 <input id="myParameter" name="params" type=hidden size=50 placeholder="D7,DWR,HIGH"> 
 
-Access Token:-------<input id="myToken" name="access_token" type=text size=50 
-
-placeholder="5622ce6bba702ef6bd3456d5ed26aaa4a28d7c9"> 
+Access Token:<input id="myToken" name="access_token" type=text size=50 placeholder="5622ce6bba702ef6bd3456d5ed26aaa4a28d7c9"> 
 Get this from the settings area when logged into <a href="http://spark.io">http://spark.io</a><br><br>
 
+
+
+
 </form>
+
+
+
+
+<input type="button" value="Store Spark Token and ID locally!" onClick="{
+   localStorage.setItem('myStoredText1', document.all.myToken.value)   
+   localStorage.setItem('myStoredText2', document.all.myDeviceId.value)
+   alert( document.all.myToken.value + ' ' +document.all.myDeviceId.value + ' \nHas been stored')
+}">
+
+
+
+<br><br>
+
+
 
 
 <input type="button" value="d7-send-1" onClick="{
@@ -45,6 +83,7 @@ Get this from the settings area when logged into <a href="http://spark.io">http:
 }">
 
 
+
 <input type="button" value="d7-send-0" onClick="{
     document.all.myParameter.value='d7-send-0'
     document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
@@ -53,9 +92,16 @@ Get this from the settings area when logged into <a href="http://spark.io">http:
     document.myForm.submit();
 }">
 
-<iframe width="400" height="200" name="myFrameName" id="myFrameId">    </iframe> 
+
+
+<br><br>
+
+
+<input type=hidden id="mySend" value="https://api.spark.io/v1/devices/55gg76065075555387781787/d7-on">
+<iframe style="visibility:hidden" width="400" height="200" name="myFrameName" id="myFrameId"></iframe> 
 
 
 </body>
 </html>
+
 
