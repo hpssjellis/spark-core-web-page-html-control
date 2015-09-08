@@ -1,5 +1,12 @@
-spark-core-web-page-html-control
+particle.io (formerly spark.io)-web-page-html-control
 ================================
+
+
+update Sep7, 2015
+
+Made photon.html since a youtube user wanted an easier version of the webpage that just uses buttons to activate the photon
+
+
 
 Example control of the spark core and perhaps photon with a simple html web page 
 
