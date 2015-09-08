@@ -4,7 +4,17 @@
 
 <title><a href="http://particle.io" >Particle.io</a> (formerly Spark.io) web page control of the Core or Photon </title>
 
+<script>
 
+function sendIt(myValue){     // simplifies sending info to the photon
+    document.all.myParameter.value=myValue
+    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
+    document.all.mySend.value = document.myForm.action 
+    
+    document.myForm.submit();
+}
+
+</script>
 
 </head>
 
@@ -25,11 +35,7 @@
 
   
 
-
-
 <h2 align=center><a href="http://particle.io" >Particle.io</a> (formerly Spark.io) web page control of the Core or Photon </h2>
-
-
 
 
 
@@ -41,25 +47,19 @@ Device ID:<input id="myDeviceId" name="myCoreID" type=text size=50 placeholder="
 Get this from the core area when logged in<br>
 
 
-<input id="myFunctionName" name="myFunction"  type=hidden size=50 value="my-main" > 
+<input id="myFunctionName" name="myFunction"  type=hidden  value="my-main" > 
 
 
 
 
 <form name="myForm" method="POST" action = "https://api.spark.io/v1/devices/sparkCoreName/myTurnOn" target="myFrameName"><br>
 
-<input id="myParameter" name="params" type=hidden size=50 placeholder="D7,DWR,HIGH"> 
+<input id="myParameter" name="params" type=hidden > 
 
 Access Token:<input id="myToken" name="access_token" type=text size=50 placeholder="5622ce6bba702ef6bd3456d5ed26aaa4a28d7c9"> 
 Get this from the settings area when logged into <a href="http://spark.io">http://spark.io</a><br><br>
 
-
-
-
 </form>
-
-
-
 
 <input type="button" value="Store Spark Token and ID locally!" onClick="{
    localStorage.setItem('myStoredText1', document.all.myToken.value)   
@@ -68,38 +68,22 @@ Get this from the settings area when logged into <a href="http://spark.io">http:
 }">
 
 
-
 <br><br>
 
-
-
-
 <input type="button" value="d7-send-1" onClick="{
-    document.all.myParameter.value='d7-send-1'
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    
-    document.myForm.submit();
+    sendIt('d7-send-1');
 }">
-
 
 
 <input type="button" value="d7-send-0" onClick="{
-    document.all.myParameter.value='d7-send-0'
-    document.myForm.action = 'https://api.spark.io/v1/devices/' + document.all.myDeviceId.value + '/my-main'
-    document.all.mySend.value = document.myForm.action 
-    
-    document.myForm.submit();
+    sendIt('d7-send-0');
 }">
-
 
 
 <br><br>
 
-
-<input type=hidden id="mySend" value="https://api.spark.io/v1/devices/55gg76065075555387781787/d7-on">
+<input type=hidden id="mySend" value="">
 <iframe style="visibility:hidden" width="400" height="200" name="myFrameName" id="myFrameId"></iframe> 
-
 
 </body>
 </html>
