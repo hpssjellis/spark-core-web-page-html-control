@@ -2,7 +2,7 @@ particle.io (formerly spark.io)-web-page-html-control
 ================================
 
 
-update Sep7, 2015
+Update Sep7, 2015
 
 Made simple.html since a youtube user wanted an easier version of the webpage that just uses buttons to activate the photon
 
@@ -31,6 +31,8 @@ Finished Jan 5, 2015
 
 
 The files are:
+
+1. simple.html (latest update). Much easier webpage for controlling the Photon or Core
 
 1. spark-control-basic-web-page.html Control a spark device using regular html a form, iframe and local storage. 
 
