@@ -1,8 +1,8 @@
-particle.io (formerly spark.io)-web-page-html-control
+particle.io Photon (formerly spark.io Core)-web-page-html-control
 ================================
 update Oct 2015
 
-Oops. simple.html does not allow any read functions to work. Back to the drawing board, I need to make the AJAX base more simple.
+Oops. simple.html does not allow any read functions to work. Back to the drawing board, I need to make the AJAX base more simple. So I made the AjaxBetter.html file that should be the one everybody uses. It is as easy as it gets while still returning analog or digital read information. Refer to the more complex xtra-ajax-json-slider-polling.html for Polling or a working slider.
 
 Update Sep 7, 2015
 
