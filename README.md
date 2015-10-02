@@ -1,8 +1,10 @@
 particle.io (formerly spark.io)-web-page-html-control
 ================================
+update Oct 2015
 
+Oops. simple.html does not allow any read functions to work. Back to the drawing board, I need to make the AJAX base more simple.
 
-Update Sep7, 2015
+Update Sep 7, 2015
 
 Made simple.html since a youtube user wanted an easier version of the webpage that just uses buttons to activate the photon
 
