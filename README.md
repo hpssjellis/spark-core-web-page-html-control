@@ -1,5 +1,15 @@
 particle.io Photon (formerly spark.io Core)-web-page-html-control
 ================================
+
+update Oct 13, 2015
+PWM send (write) for analog only works with this setup for pins A4, A5. 
+
+DAC1,2 A3 and A6 have some cool direct voltage thing that presently is not working.
+Analog read should work on all pins A0 - A7 but it is having some issues.
+
+Digital read and write is doing fine.
+
+
 update Oct 2015
 
 Oops. simple.html does not allow any read functions to work. Back to the drawing board, I need to make the AJAX base more simple. So I made the AjaxBetter.html file that should be the one everybody uses. It is as easy as it gets while still returning analog or digital read information. Refer to the more complex xtra-ajax-json-slider-polling.html for Polling or a working slider.
