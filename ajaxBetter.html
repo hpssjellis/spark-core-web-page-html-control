@@ -196,13 +196,20 @@ Get this from the settings area when logged into <a href="http://spark.io">http:
 
 <input type="button" value="a1-read" onClick="{
     sendToSpark('a1-read')
+}"><br>
+
+
+
+<input type="button" value="a4-send-0" onClick="{
+    sendToSpark('a4-send-0')
 }">
 
 
-
-
+<input type="button" value="a4-send-255" onClick="{
+    sendToSpark('a4-send-255')
+}">
     
-</script>
+Note: PWM only on A4, A5 presently<br>
 
 
 
@@ -221,7 +228,7 @@ Get this from the settings area when logged into <a href="http://spark.io">http:
 
 
 
-<input type=button id="myToVolts" value="Convert Sensor A1 reading into Volts" onclick="{
+<input type=button id="myToVolts" value="Convert Sensor reading into Volts" onclick="{
   var myTemp = parseFloat(getElementById('myDivId').innerHTML)
   document.all.myCalc1.value = (myTemp * 3.3 / 4095).toFixed(2);
 }">
