@@ -79,8 +79,10 @@ int myMain(String myCode) {
         
     }  else {      // analog pins activated
     
-        if (myActivity == "READ"){    //Analog read
-            pinMode(pinNumber, INPUT_PULLUP); // sets unknown to max 4095 analog read
+        if (myActivity == "READ"){    //Analog read           // pinMode(pinNumber, INPUT_PULLUP); // sets unknown to max 4095 analog read
+           // pinMode(pinNumber, INPUT); // sets to input
+           // pinMode(pinNumber, INPUT_PULLDOWN); // sets unknown to 0 min analog read
+           // trying nothing, since with the new version of tinker this works
             return analogRead(pinNumber);
         }
         
