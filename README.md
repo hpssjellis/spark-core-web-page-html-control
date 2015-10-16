@@ -1,6 +1,11 @@
 particle.io Photon (formerly spark.io Core)-web-page-html-control
 ================================
 
+
+update Oct 15, 2015
+
+Arrgh! An update on the Photon has left this code not working for AnalogRead. It seems that for the new Photon. AnalogRead can not have the pinmode set. I have change the simple-web.ino to reflect this issue. It should work now.
+
 update Oct 13, 2015
 PWM send (write) for analog only works with this setup for pins A4, A5. 
 
