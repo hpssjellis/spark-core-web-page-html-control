@@ -1,5 +1,11 @@
 particle.io Photon (formerly spark.io Core)-web-page-html-control
 ================================
+Update Oct 28, 2015
+As this reposiotory is getting bloated and badly named since Spark.io has changed to Particle.io and the Spark Core is now gone replaced with the Photon. I have moved this repository to 
+
+https://github.com/hpssjellis/particle-photon-web-page-control
+
+
 
 
 update Oct 15, 2015
