@@ -2,6 +2,31 @@ particle.io Photon (formerly spark.io Core)-web-page-html-control
 ================================
 
 
+
+
+
+
+
+An installation video of all but the recent stuff is at
+
+
+
+
+https://youtu.be/-CyKv4UC1OA
+
+
+[![Instructional video](http://img.youtube.com/vi/-CyKv4UC1OA/0.jpg)](https://youtu.be/-CyKv4UC1OA)
+
+
+
+
+
+
+
+
+
+
+
 Dec 15, 2015
 
 I just added an index.html for http://www.evothings.com (remember that spark-web.ino still needs to be flashed to the photon for a webpage to be able to communicate with it.)
