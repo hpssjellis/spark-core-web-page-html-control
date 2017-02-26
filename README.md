@@ -7,6 +7,17 @@ particle.io Photon (formerly spark.io Core)-web-page-html-control
 
 
 
+
+
+Update: Feb 2017
+This site has been tested with students and works fine but I am making a more up-to-date site at 
+https://github.com/hpssjellis/particle-photon-raspberry-pi-iot
+
+
+
+
+
+
 An installation video of all but the recent stuff is at
 
 
@@ -16,6 +27,8 @@ https://youtu.be/-CyKv4UC1OA
 
 
 [![Instructional video](http://img.youtube.com/vi/-CyKv4UC1OA/0.jpg)](https://youtu.be/-CyKv4UC1OA)
+
+
 
 
 
