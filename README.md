@@ -1,11 +1,9 @@
 particle.io Photon (formerly spark.io Core)-web-page-html-control
-================================
+=============================
 
 
 
-
-
-
+Working link at http://hpssjellis.github.io/spark-core-web-page-html-control/ajaxBetter.html
 
 
 
